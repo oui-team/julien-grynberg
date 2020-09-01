@@ -11,3 +11,12 @@ def hawes_response() -> List:
         {"start": 1577884500, "end": 1577884557, "power": 518},
         {"start": 1578177900, "end": 1578178283, "power": 750},
     ]
+
+
+@pytest.fixture()
+def barnsley_response() -> List:
+    return [
+        {"start_time": 1577833200, "end_time": 1577833200, "value": 774},
+        {"start_time": 1577834100, "end_time": 1577834101, "value": 682},
+        {"start_time": 1578177900, "end_time": 1578178283, "value": 622},
+    ]
