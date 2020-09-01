@@ -6,6 +6,7 @@ from typing import List, Optional
 from bcm_backend_interview.builders.barnsley import build_barnsley
 from bcm_backend_interview.builders.hawes import build_hawes
 from bcm_backend_interview.builders.hounslow import build_hounslow
+from bcm_backend_interview.workers.production_sumer import sum_ppp
 
 
 def parse_ppp_params(params: Optional[List[str]] = None) -> int:
@@ -38,7 +39,6 @@ def parse_ppp_params(params: Optional[List[str]] = None) -> int:
     hawes = build_hawes(args.from_date, args.to_date)
     barnsley = build_barnsley(args.from_date, args.to_date)
     hounslow = build_hounslow(args.from_date, args.to_date)
-    print(hawes)
-    print(barnsley)
-    print(hounslow)
+    data = sum_ppp([hawes, barnsley, hounslow])
+    print(data)
     return 0
