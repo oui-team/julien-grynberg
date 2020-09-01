@@ -20,3 +20,11 @@ def barnsley_response() -> List:
         {"start_time": 1577834100, "end_time": 1577834101, "value": 682},
         {"start_time": 1578177900, "end_time": 1578178283, "value": 622},
     ]
+
+
+@pytest.fixture()
+def hounslow_response() -> str:
+    return (
+        "debut,fin,valeur\n1577833200,1577833200,568\n"
+        "1577834100,1577834101,770\n1578175200,1578175580,754"
+    )

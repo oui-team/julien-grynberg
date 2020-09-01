@@ -6,7 +6,7 @@ from bcm_backend_interview.builders.barnsley import BarnsleyBuilder
 
 class TestBarnsleyBuilder:
     def test_rename_attrs(self, barnsley_response):
-        barnsley_df = BarnsleyBuilder._convert_to_df(barnsley_response)
+        barnsley_df = BarnsleyBuilder._convert_list_to_df(barnsley_response)
 
         renamed_df = BarnsleyBuilder._rename_attrs(barnsley_df)
 

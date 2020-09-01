@@ -14,7 +14,7 @@ class TestHawesBuilder:
             }
         )
 
-        converted_result = HawesBuilder._convert_to_df(hawes_response)
+        converted_result = HawesBuilder._convert_list_to_df(hawes_response)
 
         assert_frame_equal(expected_result, converted_result, check_like=True)
 
