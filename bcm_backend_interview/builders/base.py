@@ -3,7 +3,8 @@ from typing import List, ByteString
 
 import requests
 from pandas import DataFrame, read_csv
-from requests import Response
+from requests import Response, Timeout
+from retry import retry
 
 
 class BasePPBuilder:
@@ -25,6 +26,7 @@ class BasePPBuilder:
         except requests.RequestException as e:
             raise str(e)
 
+    @retry(Timeout, tries=10)
     def _call_api(self) -> Response:
         return requests.get(f"{self.pp_url}?from={self.from_date}&to={self.to_date}")
 

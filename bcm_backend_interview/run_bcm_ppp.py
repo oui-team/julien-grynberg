@@ -3,7 +3,9 @@
 import argparse
 from typing import List, Optional
 
+from bcm_backend_interview.builders.barnsley import build_barnsley
 from bcm_backend_interview.builders.hawes import build_hawes
+from bcm_backend_interview.builders.hounslow import build_hounslow
 
 
 def parse_ppp_params(params: Optional[List[str]] = None) -> int:
@@ -33,6 +35,10 @@ def parse_ppp_params(params: Optional[List[str]] = None) -> int:
     )
 
     args = parser.parse_args(params)
-    response = build_hawes(args.from_date, args.to_date)
-    print(response)
+    hawes = build_hawes(args.from_date, args.to_date)
+    barnsley = build_barnsley(args.from_date, args.to_date)
+    hounslow = build_hounslow(args.from_date, args.to_date)
+    print(hawes)
+    print(barnsley)
+    print(hounslow)
     return 0
