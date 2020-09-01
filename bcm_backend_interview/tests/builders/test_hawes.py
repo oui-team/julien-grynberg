@@ -17,3 +17,10 @@ class TestHawesBuilder:
         converted_result = HawesBuilder._convert_to_df(hawes_response)
 
         assert_frame_equal(expected_result, converted_result, check_like=True)
+
+    def test_rename_attrs(self):
+        df = DataFrame({"start": [1577833200], "end": [1577833200], "power": [710]})
+
+        renamed_df = HawesBuilder._rename_attrs(df)
+
+        assert_frame_equal(df, renamed_df, check_like=True)
